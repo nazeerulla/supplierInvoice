@@ -1,0 +1,83 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc">
+
+    <Table id="itemsTable" items="{itemsModel>/}">
+        <headerToolbar>
+            <OverflowToolbar>
+
+                <ToolbarSpacer />
+
+                <!-- Add the Personalization button -->
+                <Button icon="sap-icon://action-settings" press="onPersoButtonPressed"></Button>
+            </OverflowToolbar>
+        </headerToolbar>
+        <columns>
+            <Column minScreenWidth="Tablet" demandPopin="true" width="15rem">
+                <Text text="{i18n>invoiceItem}" />
+            </Column>
+            <Column minScreenWidth="Tablet" demandPopin="true">
+                <Text text="{i18n>shortText}" />
+            </Column>
+            <Column width="12rem" minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+                <Text text="{i18n>amntperUnit}" />
+            </Column>
+            <Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+                <Text text="{i18n>quantity}" />
+            </Column>
+            <Column minScreenWidth="Tablet" demandPopin="true">
+                <Text text="{i18n>taxCode}" />
+            </Column>
+            <Column hAlign="Center" minScreenWidth="Tablet" demandPopin="true">
+                <Text text="{i18n>taxRate}" />
+            </Column>
+
+
+            <Column minScreenWidth="Tablet" demandPopin="true">
+                <Text text="{i18n>taxAmount}" />
+
+            </Column>
+            <Column minScreenWidth="Tablet" demandPopin="true">
+                <Text text="{i18n>netAmount}" />
+
+            </Column>
+        </columns>
+        <items>
+            <ColumnListItem vAlign="Top">
+                <cells>
+                    <ObjectHeader class="sapUiResponsivePadding--header" title="{itemsModel>serialNo}">
+                        <ObjectAttribute title="Plant" text="{itemsModel>Plant}" />
+                        <ObjectAttribute title="Pur Doc Item" text="{itemsModel>PurchaseOrderItem}" />
+
+                    </ObjectHeader>
+
+
+                    <Text text="{itemsModel>PurchaseOrderItemText}" />
+                    <FlexBox alignItems="Start" justifyContent="Center">
+                        <Input value="{parts:[{path:'itemsModel>amountperUnit'},{path:'itemsModel>netUnit'}],
+						type: 'sap.ui.model.type.Currency',
+						formatOptions: {showMeasure: false}
+                        }" maxLength="17" width="6rem" change="onChangeValue" liveChange="validateInput"/>
+                        <Text class="unitclass" text="EUR"></Text>
+                    </FlexBox>
+
+                    <ObjectNumber number="{itemsModel>OrderQuantity}" unit="{itemsModel>PurchaseOrderQuantityUnit}" />
+                    <Input placeholder="Enter Taxcode" showSuggestion="true" showValueHelp="true" valueHelpOnly="true" valueHelpRequest="onValueHelpTaxcode" value="{itemsModel>TaxCode}"></Input>
+                    <Text text="{itemsModel>taxRate}" />
+
+
+                    <ObjectNumber number="{
+						parts:[{path:'itemsModel>taxAmount'},{path:'itemsModel>taxUnit'}],
+						type: 'sap.ui.model.type.Currency',
+						formatOptions: {showMeasure: false}
+					}" unit="{itemsModel>taxUnit}" />
+
+
+                    <ObjectNumber number="{parts:[{path:'itemsModel>netAmount'},{path:'itemsModel>netUnit'}],
+						type: 'sap.ui.model.type.Currency',
+						formatOptions: {showMeasure: false}}" unit="{itemsModel>netUnit}" />
+
+
+                </cells>
+            </ColumnListItem>
+        </items>
+    </Table>
+</core:FragmentDefinition>

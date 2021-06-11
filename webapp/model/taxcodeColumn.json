@@ -1,0 +1,37 @@
+{
+	"cols": [
+		{
+			"label": "TaxCode",
+			"template": "TaxCode",
+			"width": "5rem"
+		},
+		
+		{
+			"label": "Description",
+            "template": "Description",
+            "width": "10rem"
+        },
+        {
+			"label": "TaxRate",
+            "template": "TaxRate",
+            "width": "10rem"
+		}
+    ],
+    "details":{
+
+        "invoiceDate":"",
+        "taxDate":"",
+        "postingDate":"",
+        "reference":"",
+        "PurchaseOrder":"",
+        "CompanyCode":"",
+        "fiscal":"2021",
+        "InvoicingParty":"",
+        "invoiceAmount":"0",
+        "mileage":"",
+        "unit":"EUR"
+
+    }
+    
+    
+}

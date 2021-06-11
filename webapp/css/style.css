@@ -1,0 +1,39 @@
+/* Enter your custom styles here */
+
+.sapMOH {
+    padding: 0rem;
+}
+
+.sapFAvatarL {
+    height: 5rem;
+    width: 9rem;
+    font-size: 2.5rem;
+}
+.sapFDynamicPageTitleMain>.sapFDynamicPageTitleMainInner .sapFDynamicPageTitleMainHeading .sapFDynamicPageTitleMainHeadingInner .sapMTitle {
+    font-size: 1.75rem !important;
+}
+.sapMObjStatus>.sapMObjStatusTitle {
+    padding-right: 0.60rem;
+}
+/* .sapMObjStatus .sapMObjStatusTitle {
+    line-height: 1.9rem !important;
+    display: inline-block;
+    height: inherit;
+    vertical-align: middle;
+    margin-left: 0.5rem !important;
+} */
+.sapMObjStatus .sapMObjStatusTitle, .sapMObjStatus .sapMObjStatusText {
+    line-height: 1.9rem;
+    display: inline-block;
+    height: inherit;
+    vertical-align: top;
+    margin-left: 0.5rem !important;
+}
+
+.bottom {
+  
+       margin-top: 0.75rem !important;
+}
+.unitclass {
+        padding: 0.3rem !important;
+}

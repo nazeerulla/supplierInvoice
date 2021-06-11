@@ -1,0 +1,17 @@
+
+	{"CurrencyCollection": [
+		{
+            "Currency": "EUR",
+            "LongText":"European Euro"
+		},
+		
+		{
+            "Currency": "AUD",
+            "LongText":"Australian Dollar"
+        },
+        {
+            "Currency": "INR",
+            "LongText":"Indian Rupee"
+		}
+    ]
+}

@@ -1,0 +1,66 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:layout="sap.ui.layout" xmlns:f="sap.ui.layout.form">
+    <VBox class="sapUiSmallMargin">
+        <f:SimpleForm id="SimpleFormChangeColumn_oneGroup234" editable="true" maxContainerCols="4" layout="ColumnLayout" labelSpanL="4" labelSpanM="4" emptySpanL="0" emptySpanM="0" columnsM="2" columnsL="3" columnsXL="4">
+            <f:content>
+                <Label text="{i18n>invoicedate}" />
+                <DatePicker value="{detailsModel>/invoiceDate}" id="DP1" 
+                 displayFormat="dd/MM/yyyy" valueFormat="dd/MM/yyyy" placeholder="dd/MM/yyyy" change="dateValidate" class="sapUiSmallMarginBottom" />
+                <Label text="{i18n>reference}" />
+                <Input value="{detailsModel>/reference}" id="referenceId" maxLength="10"/>
+                <Label text="{i18n>postDate}" />
+                <DatePicker id="DP3" value="{detailsModel>/postDate}" displayFormat="dd/MM/yyyy" valueFormat="dd/MM/yyyy" placeholder="dd/MM/yyyy" change="dateValidatepost" class="sapUiSmallMarginBottom" />
+                <Label text="{i18n>fiscal}" />
+                <Input value="{detailsModel>/fiscal}" editable="false" id="fiscalId" />
+                <Label text="{i18n>taxDate}" />
+                <DatePicker value="{detailsModel>/taxDate}" id="DP2" displayFormat="dd/MM/yyyy" valueFormat="dd/MM/yyyy" placeholder="dd/MM/yyyy" change="dateValidate" class="sapUiSmallMarginBottom" />
+                <Label text="{i18n>PO}" />
+                <Input value="{detailsModel>/PurchaseOrder}" id="po" editable="true" />
+                <Label text="{i18n>invoiceparty}" />
+                <Input value="{detailsModel>/InvoicingParty}" editable="false" />
+
+                <Label text="{i18n>companycode}" class="bottom" />
+                <Input value="{detailsModel>/CompanyCode}" editable="false" />
+                <Label text="{i18n>grossInvoiceamt}" />
+
+             <Input value="{parts:[{path:'detailsModel>/invoiceAmount'},{path:'detailsModel>/DocumentCurrency'}],
+						type: 'sap.ui.model.type.Currency',
+						formatOptions: {showMeasure: false}}" id="grossinvoice" editable="false">
+                    <layoutData>
+                        <layout:GridData span="L5 M5 S10" />
+                    </layoutData>
+                </Input>
+
+                <Text text="EUR">
+
+
+                    <layoutData>
+                        <layout:GridData span="L2 M2 S10" />
+                    </layoutData>
+
+                </Text>
+                <Label text="{i18n>mileage}" class="bottom" />
+
+                <Input value="1250" type="Number">
+                    <layoutData>
+                        <layout:GridData span="L5 M5 S10" />
+                    </layoutData>
+                </Input>
+
+                <Text text="KM">
+
+
+                    <layoutData>
+                        <layout:GridData span="L2 M2 S10" />
+                    </layoutData>
+
+                </Text>
+                <Label />
+                <Text />
+                <Label />
+                <Text />
+
+
+            </f:content>
+        </f:SimpleForm>
+    </VBox>
+</core:FragmentDefinition>

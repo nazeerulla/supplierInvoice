@@ -1,0 +1,171 @@
+{
+    "_version": "1.32.0",
+    "sap.app": {
+        "id": "com.sap.supplierinvoiceapp",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "applicationVersion": {
+            "version": "1.0.0"
+        },
+        "title": "{{appTitle}}",
+        "description": "{{appDescription}}",
+        "resources": "resources.json",
+        "ach": "ach",
+        "dataSources": {
+            "mainService": {
+                "uri": "/sap/opu/odata/sap/API_PURCHASEORDER_PROCESS_SRV/",
+                "type": "OData",
+                "settings": {
+                    "odataVersion": "2.0",
+                    "localUri": "localService/metadata.xml"
+                }
+            },
+            
+               "supplierInvoice": {
+                "uri": "/sap/opu/odata/sap/API_SUPPLIERINVOICE_PROCESS_SRV/",
+                "type": "OData",
+                "settings": {
+                    "odataVersion": "2.0",
+                    "localUri": "localService/metadata.xml"
+                }
+            },
+            "Attachments":{
+                "uri": "/sap/opu/odata/sap/API_CV_ATTACHMENT_SRV/",
+                "type": "OData",
+                "settings": {
+                    "odataVersion": "2.0",
+                    "localUri": "localService/metadata.xml"
+                }
+            }
+        },
+        "crossNavigation": {
+            "inbounds": {
+                "com-sap-supplierinvoiceapp-inbound": {
+                    "signature": {
+                        "parameters": {},
+                        "additionalParameters": "allowed"
+                    },
+                    "semanticObject": "ZCreateInvoice",
+                    "action": "Display",
+                    "title": "Supplier Invoice",
+                    "subTitle": "",
+                    "icon": ""
+                }
+            }
+        }
+    },
+    "sap.ui": {
+        "technology": "UI5",
+        "icons": {
+            "icon": "sap-icon://task",
+            "favIcon": "",
+            "phone": "",
+            "phone@2": "",
+            "tablet": "",
+            "tablet@2": ""
+        },
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        }
+    },
+    "sap.ui5": {
+        "flexEnabled": false,
+        "rootView": {
+            "viewName": "com.sap.supplierinvoiceapp.view.createInvoice",
+            "type": "XML",
+            "async": true,
+            "id": "createInvoice"
+        },
+        "dependencies": {
+            "minUI5Version": "1.66.0",
+            "libs": {
+                "sap.ui.core": {},
+                "sap.m": {},
+                "sap.ui.layout": {}
+            }
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+                    "bundleName": "com.sap.supplierinvoiceapp.i18n.i18n"
+                }
+            },
+              "columnModel": {
+				"type": "sap.ui.model.json.JSONModel",
+				"uri": "model/columnsModel.json"
+            },
+             "currencyModel": {
+				"type": "sap.ui.model.json.JSONModel",
+				"uri": "model/currencies.json"
+            },
+            "columntaxCode": {
+				"type": "sap.ui.model.json.JSONModel",
+				"uri": "model/taxcodeColumn.json"
+            },
+            "taxCode": {
+				"type": "sap.ui.model.json.JSONModel",
+				"uri": "model/taxcode.json"
+            },
+            "": {
+                "dataSource": "mainService",
+                "preload": true
+            },
+             "supplierInvoice": {
+                "dataSource": "supplierInvoice",
+                "preload": true
+            },
+            "Attachments": {
+                "dataSource": "Attachments",
+                "preload": true
+            }
+           
+        },
+        "resources": {
+            "css": [
+                {
+                    "uri": "css/style.css"
+                }
+            ]
+        },
+        "routing": {
+            "config": {
+                "routerClass": "sap.m.routing.Router",
+                "viewType": "XML",
+                "async": true,
+                "viewPath": "com.sap.supplierinvoiceapp.view",
+                "controlAggregation": "pages",
+                "controlId": "app",
+                "clearControlAggregation": false
+            },
+            "routes": [
+                {
+                    "name": "RoutecreateInvoice",
+                    "pattern": "RoutecreateInvoice",
+                    "target": [
+                        "TargetcreateInvoice"
+                    ]
+                }
+            ],
+            "targets": {
+                "TargetcreateInvoice": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "createInvoice",
+                    "viewName": "createInvoice"
+                }
+            }
+        }
+    },
+    "sap.cloud": {
+        "public": true,
+        "service": "com-sap-supplierinvoiceapp"
+    }
+}

@@ -1,0 +1,108 @@
+<mvc:View
+    controllerName="com.sap.supplierinvoiceapp.controller.createInvoice"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"  
+ xmlns:t="sap.ui.table"  xmlns:html="http://www.w3.org/1999/xhtml"
+  xmlns:layout="sap.ui.layout" xmlns:u="sap.uxap" xmlns:f="sap.ui.layout.form"
+>
+	<Shell id="shell">
+		<App id="app">
+			<pages>
+				<Page class="sapUiSizeCompact" title="{i18n>pageTitle}">
+        <content>
+
+            <u:ObjectPageLayout id="ObjectPageLayout" upperCaseAnchorBar="false">
+                <u:headerTitle>
+                    <u:ObjectPageDynamicHeaderTitle>
+                        <u:expandedHeading>
+                            <Title text="{i18n>objHeaderTitle}" wrapping="true" />
+                        </u:expandedHeading>
+
+                        <u:snappedHeading>
+                            <HBox>
+                                <VBox></VBox>
+                            </HBox>
+                        </u:snappedHeading>
+
+
+                    </u:ObjectPageDynamicHeaderTitle>
+                </u:headerTitle>
+
+                <u:headerContent>
+                    <FlexBox wrap="Wrap" fitContainer="true">
+                        <Avatar class="sapUiTinyMarginEnd" src="../img/car1.jpg" displaySize="L" />
+
+                        <VBox class="sapUiLargeMarginEnd sapUiSmallMarginBottom">
+                            <ObjectStatus title="{i18n>Manufacturer}" text="Audi AG" />
+                            <ObjectStatus title="{i18n>model}" text="Q5" />
+                            <ObjectStatus title="{i18n>license}" text="HD-IP-365" />
+
+                        </VBox>
+
+                        <VBox class="sapUiSmallMarginBottom sapUiLargeMarginEnd">
+                            <ObjectStatus title="{i18n>vin}" text="WA1CNAFY346J2066236" class="sapUiTinyMarginBottom" />
+                            <ObjectStatus title="{i18n>mileage}" text="12.500 KM" />
+
+                        </VBox>
+
+
+                    </FlexBox>
+                </u:headerContent>
+                <u:sections>
+                    <u:ObjectPageSection titleUppercase="false" title="{i18n>detail}" navigate="objectpagesection">
+                        <u:subSections>
+                            <u:ObjectPageSubSection titleUppercase="false">
+
+
+                             <core:Fragment fragmentName="com/sap/supplierinvoiceapp/fragment/details" type="XML"></core:Fragment>  
+
+
+                            </u:ObjectPageSubSection>
+                        </u:subSections>
+                    </u:ObjectPageSection>
+
+
+                    <u:ObjectPageSection title="{i18n>item}">
+                        <u:subSections>
+                            <u:ObjectPageSubSection>
+                                 <core:Fragment fragmentName="com/sap/supplierinvoiceapp/fragment/Items" type="XML"></core:Fragment> 
+
+
+                            </u:ObjectPageSubSection>
+                        </u:subSections>
+                    </u:ObjectPageSection>
+
+                    <u:ObjectPageSection title="{i18n>attachment}">
+                        <u:subSections>
+                            <u:ObjectPageSubSection>
+
+             <core:Fragment fragmentName="com/sap/supplierinvoiceapp/fragment/Attachments" type="XML"></core:Fragment> 
+
+                            </u:ObjectPageSubSection>
+                        </u:subSections>
+                    </u:ObjectPageSection>
+
+                </u:sections>
+
+            </u:ObjectPageLayout>
+        </content>
+        <footer>
+            <OverflowToolbar>
+<Button icon="sap-icon://message-popup" text="{/messagesLength}" type="Emphasized" id="Messagebutton" press="handleMessagePopoverPress"
+					visible="true"/>
+                <ToolbarSpacer />
+                
+                <Button type="Emphasized" text="{i18n>create}" press="onCreateInvoice"></Button>
+                <Button text="{i18n>cancel}" id="cancelBtn" press="cancelSupplier"></Button>
+                 <Button text="upload" press="uploadAttach" visible="false"></Button>
+            </OverflowToolbar>
+        </footer>
+
+    </Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>
+

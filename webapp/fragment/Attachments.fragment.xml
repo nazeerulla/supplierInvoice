@@ -1,0 +1,26 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core"
+ xmlns:layout="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:u="sap.ui.unified">
+    <VBox>
+        <UploadCollection id="UploadCollection" maximumFilenameLength="200" maximumFileSize="10" multiple="true"  filenameLengthExceed="onFilenameLengthExceed" fileType="TIF,DOCX,DOC,HTM,HTML,JPEG,JPG,MSG,PDF,PPT,PPTX,FAX,VSD,XLS,XLSX,XML" typeMissmatch="onFileError" fileSizeExceed="onFileSizeExceed" uploadComplete="onUploadComplete" fileDeleted="onFileDeleted" beforeUploadStarts="onBeforeUploadStarts"
+         instantUpload="false"  change="onChange" uploadUrl="/sap/opu/odata/sap/API_CV_ATTACHMENT_SRV/AttachmentContentSet" visible="true" items="{path : 'attachset>/items', templateShareable : 'true'}">
+            <toolbar>
+                <OverflowToolbar>
+                    <ToolbarSpacer />
+                    <UploadCollectionToolbarPlaceholder></UploadCollectionToolbarPlaceholder>
+
+                </OverflowToolbar>
+            </toolbar>
+            <items>
+                <UploadCollectionItem documentId="{attachset>ID}" fileName="{attachset>fileName}" mimeType="{attachset>MIMEType}" thumbnailUrl="{attachset>thumbnailUrl}" url="{url}" enableEdit="true" enableDelete="true" visibleDelete="true" visibleEdit="true" press="handlePress" attributes="{path : 'attachset>attributes', templateShareable : false}">
+
+                    <attributes>
+                        <ObjectAttribute title="{attachset>title}" text="{attachset>text}" />
+                    </attributes>
+                </UploadCollectionItem>
+            </items>
+        </UploadCollection>
+
+        <!-- <u:FileUploader id="fileUploader" change= "onChange" sendXHR = "true" uploadComplete = "onComplete"  typeMissmatch = "onMissmatch"
+											maximumFileSize = "15MB" fileSizeExceed = "onSizeExceed" style ="Emphasized" /> -->
+    </VBox>
+</core:FragmentDefinition>

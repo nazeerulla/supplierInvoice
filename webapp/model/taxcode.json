@@ -1,0 +1,23 @@
+
+	{"taxcode": [
+		{
+            "TaxCode": "V1",
+            "Description":"abc",
+            "TaxRate":10
+           
+		},
+		
+		{
+            "TaxCode": "V2",
+            "Description":"xyz",
+            "TaxRate":20
+           
+        },
+        {
+            "TaxCode": "V3",
+            "Description":"abc",
+            "TaxRate":30
+           
+		}
+    ]
+}

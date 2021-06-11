@@ -1,0 +1,15 @@
+{
+	"cols": [
+		{
+			"label": "Currency",
+			"template": "Currency",
+			"width": "5rem"
+		},
+		
+		{
+			"label": "Long Text",
+            "template": "LongText",
+            "width": "10rem"
+		}
+	]
+}
